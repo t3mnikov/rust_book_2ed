@@ -69,6 +69,7 @@ ctrl
 Ctrl
 customizable
 CustomSmartPointer
+deallocate
 deallocated
 deallocating
 deallocation
