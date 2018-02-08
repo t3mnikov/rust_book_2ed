@@ -1,25 +1,24 @@
-# The Rust Programming Language
+# Язык программирования Rust
 
 [![Build Status](https://travis-ci.org/rust-lang/book.svg?branch=master)](https://travis-ci.org/rust-lang/book)
 
-This repo contains two editions of “The Rust Programming Language”.
+Данный репозиторий содержит перевод двух изданий “Язык программирования Rust”. 
 
-The second edition is a rewrite that will be printed by NoStarch Press,
-available around October 2017.
+Второе издание - это переработанная книга "The Rust Programming Language", которая будет напечатана издательством "No Starch Press" ориентировочно в мае 2018 года. Последнюю информацию о дате выхода книги и о способе ее заказа вы можете узнать на официальном сайте издательства [No Starch Press][nostarch].
 
-[You can read it online][html]; the last few chapters aren't completed yet, but
-the first half of the book is much improved from the first edition. We recommend
-starting with the second edition.
+[nostarch]: https://nostarch.com/rust
+
+Вы можете читать книгу [онлайн][html]; несколько последних глав еще не закончены, но готовая часть книги заметно улучшена по сравнению с первым изданием. Авторы оригинальной книги рекомендуют начать чтение со второго издания.
 
 [html]: http://rust-lang.github.io/book/
 
-[The first edition is still available to read online][first].
+[Первое издание все еще доступно к прочтению онлайн][first].
 
 [first]: https://doc.rust-lang.org/book/
 
-## Requirements
+## Требования
 
-Building the book requires [mdBook] >= v0.0.13. To get it:
+Для сборки книги требуется [mdBook] >= v0.0.13. Чтобы установить `mdBook` необходимо выполнить следующую команду:
 
 [mdBook]: https://github.com/azerupi/mdBook
 
@@ -27,18 +26,16 @@ Building the book requires [mdBook] >= v0.0.13. To get it:
 $ cargo install mdbook
 ```
 
-## Building
+## Сборка
 
-To build the book, first `cd` into either the `first-edition` or
-`second-edition` directory depending on which edition of the book you would
-like to build. Then type:
+Для того, чтобы собрать книгу, потребуется перейти `cd` в один из каталогов. Либо в каталог первого издаия `first-edition` либо второго издания `second-edition`, в зависимости от того, какое издание книги вы хотите собрать.
+Далее ввести следующую команду:
 
 ```bash
 $ mdbook build
 ```
 
-The output will be in the `book` subdirectory. To check it out, open it in
-your web browser.
+Результаты выполнения команды появятся в подкаталоге `book`. Для проверки откройте книгу в браузере.
 
 _Firefox:_
 ```bash
@@ -56,72 +53,39 @@ $ Start-Process "chrome.exe" .\book\index.html  # Windows (PowerShell)
 $ start chrome.exe .\book\index.html            # Windows (Cmd)
 ```
 
-To run the tests:
+Для запуска тестов:
 
 ```bash
 $ mdbook test
 ```
 
-## Contributing
 
-We'd love your help! Please see [CONTRIBUTING.md][contrib] to learn about the
-kinds of contributions we're looking for.
+# Полезные ссылки
 
-[contrib]: https://github.com/rust-lang/book/blob/master/CONTRIBUTING.md
+Чаты                                   | Ссылки
+---------------------------------------|--------
+для обсуждения языка, получения помощи | [![Join the chat at https://gitter.im/ruRust/general](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ruRust/general?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+для обсуждения самой книги и вопросов перевода | [![Join the chat at https://gitter.im/ruRust/rust_book_ru](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ruRust/rust_book_ru?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-### Translations
+[![ruRust/rust_book_ru](http://issuestats.com/github/ruRust/rust_book_ru/badge/pr?style=flat)](http://issuestats.com/github/ruRust/rust_book_ru)
+[![ruRust/rust_book_ru](http://issuestats.com/github/ruRust/rust_book_ru/badge/issue?style=flat)](http://issuestats.com/github/ruRust/rust_book_ru)
 
-We'd especially love help translating the second edition of the book! See the
-[Translations] label to join in efforts that are currently in progress. Open
-a new issue to start working on a new language! We're waiting on [mdbook
-support] for multiple languages before we merge any in, but feel free to
-start! The chapters in [the frozen column] of the project won't see major
-changes, so if you start with those, you won't have to redo work :)
 
-[Translations]: https://github.com/rust-lang/book/issues?q=is%3Aopen+is%3Aissue+label%3ATranslations
-[mdbook support]: https://github.com/azerupi/mdBook/issues/5
-[the frozen column]: https://github.com/rust-lang/book/projects/1
+# Соавторам
 
-## No Starch
+## С чего начать
 
-As the second edition of the book will be published by No Starch, we first
-iterate here, then ship the text off to No Starch. Then they do editing, and we
-fold it back in.
+При желании помочь с переводом пишите в группу, указанную выше. Вам ответят на любые вопросы, 
+связанные с переводом. Нам особенно интересен перевод именно второго издания! 
+Не бойтесь code review, у нас не принято наезжать на новичков. :smile:
 
-As such, there’s a directory, *nostarch*, which corresponds to the text in No
-Starch’s system.
+## Для опытных
 
-When we've started working with No Starch in a word doc, we will also check
-those into the repo in the *nostarch/odt* directory. To extract the text from
-the word doc as markdown in order to backport changes to the online book:
+[Правила перевода](https://github.com/ruRust/rust_book_ru/wiki/Правила).
 
-1. Open the doc file in LibreOffice
-1. Accept all tracked changes
-1. Save as Microsoft Word 2007-2013 XML (.docx) in the *tmp* directory
-1. Run `./doc-to-md.sh`
-1. Inspect changes made to the markdown file in the *nostarch* directory and
-   copy the changes to the *src* directory as appropriate.
+## Ресурсы
+* первое издание rustbook расположено [здесь][rustbook]
+* репозиторий второго издания расположен [здесь][github]
 
-## Graphviz dot
-
-This is mostly for Carol's reference because she keeps having to look it up.
-
-We're using [Graphviz](http://graphviz.org/) for some of the diagrams in the
-book. The source for those files live in the `dot` directory. To turn a `dot`
-file, for example, `dot/trpl04-01.dot` into an `svg`, run:
-
-```bash
-$ dot dot/trpl04-01.dot -Tsvg > src/img/trpl04-01.svg
-```
-
-In the generated SVG, remove the width and the height attributes from the `svg`
-element and set the `viewBox` attribute to `0.00 0.00 1000.00 1000.00` or other
-values that don't cut off the image.
-
-## Spellchecking
-
-To scan source files for spelling errors, you can use the `spellcheck.sh`
-script. It needs a dictionary of valid words, which is provided in
-`dictionary.txt`. If the script produces a false positive (say, you used word
-`BTreeMap` which the script considers invalid), you need to add this word to
-`dictionary.txt` (keep the sorted order for consistency).
+[rustbook]: http://ruRust.github.io/rust_book_ru
+[github]: https://github.com/ruRust/rust_book_2ed
