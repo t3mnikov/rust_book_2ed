@@ -184,9 +184,9 @@ fn main() {
 
 fn main() {
     let s = String::from("hello");
-    let r1 = &s;
-    let r2 = &s;
-    let r3 = &mut s;
+    let r1 = &s; // все нормально
+    let r2 = &s; // все нормально
+    let r3 = &mut s; // ОШИБКА
     println!("{}", r1);
     println!("{}", r2);
     println!("{}", r3);
@@ -200,10 +200,10 @@ error[E0502]: cannot borrow `s` as mutable because it is also borrowed as
 immutable
  --> borrow_thrice.rs:6:19
   |
-4 |     let r1 = &s; // no problem
+4 |     let r1 = &s; // все нормально
   |               - immutable borrow occurs here
-5 |     let r2 = &s; // no problem
-6 |     let r3 = &mut s; // BIG PROBLEM
+5 |     let r2 = &s; // все нормально
+6 |     let r3 = &mut s; // ОШИБКА
   |                   ^ mutable borrow occurs here
 7 | }
   | - immutable borrow ends here
@@ -223,7 +223,7 @@ immutable
 Rust компилятор гарантирует защиту от создания подобных ссылок.
 
 Попытаемся смоделировать подобную ошибку и посмотрим как с ней справится компилятор:
-Let’s try to create a dangling reference:
+Давайте создадим висячую ссылку:
 
 <span class="filename">Filename: src/main.rs</span>
 
@@ -269,7 +269,7 @@ for it to be borrowed from.
 ссылки:
 
 ```rust,ignore
-fn dangle() -> &String { // dangle returns a reference to a String
+fn dangle() -> &String { // dangle возвращает ссылку на String
 
     let s = String::from("hello"); //создаётся новая переменная s типа String
 
