@@ -26,7 +26,7 @@ fn area(length: u32, width: u32) -> u32 {
 }
 ```
 
-<span class="caption">Пример 5-8: Расчёт площади треугольника</span>
+<span class="caption">Пример 5-8: Расчёт площади прямоугольника</span>
 
 Теперь, проверим её работу `cargo run`:
 
